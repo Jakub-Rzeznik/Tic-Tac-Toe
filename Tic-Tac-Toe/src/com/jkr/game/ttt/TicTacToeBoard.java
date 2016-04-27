@@ -31,9 +31,5 @@ class TicTacToeBoard {
 	private boolean checkBackwardSlant() {
 		return (board[0][2]==board[1][1]) && (board[1][1]==board[2][0]);
 	}
-	
-	private void assertCoordinates(int i, int j) throws IndexOutOfBoundsException {
-		
-	}
 
 }

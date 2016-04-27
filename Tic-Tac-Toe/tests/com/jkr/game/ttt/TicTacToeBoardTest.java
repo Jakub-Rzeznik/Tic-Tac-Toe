@@ -36,6 +36,21 @@ public class TicTacToeBoardTest {
 		board.putMark(2, 2, Mark.X);
 		assertFalse(board.canPutMark(2, 2));
 	}
+	
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void testCanForOutOfBound() {
+		new TicTacToeBoard().canPutMark(4, 0);
+	}
+	
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void testPutForOutOfBound() {
+		new TicTacToeBoard().putMark(2, 8, X);
+	}
+	
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void testIsWinForOutOfBound() {
+		new TicTacToeBoard().isWinCondition(5, 0);
+	}
 
 	@Test
 	public void testSuccessfulIsWinCondition() {

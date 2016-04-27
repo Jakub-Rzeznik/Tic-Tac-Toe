@@ -51,6 +51,16 @@ public class TicTacToeBoardTest {
 	public void testIsWinForOutOfBound() {
 		new TicTacToeBoard().isWinCondition(5, 0);
 	}
+	
+	@Test
+	public void testIsFullyFilled() {
+		TicTacToeBoard board = new TicTacToeBoard();
+		for (Pair pair : allowedPairs) {
+			assertFalse(board.isFullyFilled());
+			board.putMark(pair.i, pair.j, X);
+		}
+		assertTrue(board.isFullyFilled());
+	}
 
 	@Test
 	public void testSuccessfulIsWinCondition() {

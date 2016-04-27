@@ -16,6 +16,17 @@ class TicTacToeBoard {
 		return (board[i][j]!=null) && (checkRow(i) || checkColumn(j) || (i-j==0 && checkForwardSlant()) || (i+j==2 && checkBackwardSlant()));
 	}
 	
+	boolean isFullyFilled() {
+		for (Mark[] marks : board) {
+			for (Mark mark : marks) {
+				if (mark == null) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
 	private boolean checkRow(int i) {
 		return (board[i][0]==board[i][1]) && (board[i][1]==board[i][2]);
 	}

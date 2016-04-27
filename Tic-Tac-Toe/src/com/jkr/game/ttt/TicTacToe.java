@@ -9,14 +9,15 @@ public class TicTacToe implements MultiplayerGame, TurnBasedGame {
 
 	@Override
 	public boolean nextTurnForPlayer(Player players) throws GameExecutionException {
-		// TODO Auto-generated method stub
+		// ask for coordinate
+		// validate
+		// check victory conditions
 		return false;
 	}
 
 	@Override
 	public Comparable<?>[] getPlayerDiscriminators() {
-		// TODO Auto-generated method stub
-		return null;
+		return Mark.values();
 	}
 
 }

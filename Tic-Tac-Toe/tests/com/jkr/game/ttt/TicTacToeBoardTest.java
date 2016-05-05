@@ -49,7 +49,7 @@ public class TicTacToeBoardTest {
 	
 	@Test(expected=IndexOutOfBoundsException.class)
 	public void testIsWinForOutOfBound() {
-		new TicTacToeBoard().isWinCondition(5, 0);
+		new TicTacToeBoard().isWinConditionMet(5, 0);
 	}
 	
 	@Test
@@ -108,12 +108,12 @@ public class TicTacToeBoardTest {
 		Set<Pair> clonedAllowedPairs = new HashSet<>(allowedPairs);
 		for (Pair pair : pairs) {
 			System.out.println("Checking TRUE ("+pair.i+","+pair.j+")");
-			assertTrue(board.isWinCondition(pair.i, pair.j));
+			assertTrue(board.isWinConditionMet(pair.i, pair.j));
 			clonedAllowedPairs.remove(pair);
 		}
 		for (Pair pair : clonedAllowedPairs) {
 			System.out.println("Checking FALSE ("+pair.i+","+pair.j+")");
-			assertFalse(board.isWinCondition(pair.i, pair.j));
+			assertFalse(board.isWinConditionMet(pair.i, pair.j));
 		}
 		
 	}

@@ -1,23 +1,24 @@
 package com.jkr.game.ttt;
 
-import com.jkr.game.execution.GameExecutionException;
-import com.jkr.game.execution.TurnBasedGame;
-import com.jkr.game.interaction.Player;
-import com.jkr.game.setup.MultiplayerGame;
+import com.jkr.game.area.Board;
+import com.jkr.game.execution.TurnBasedBoardGame;
+import com.jkr.game.presentation.Presentation;
 
-public class TicTacToe implements MultiplayerGame, TurnBasedGame {
-
-	@Override
-	public boolean nextTurnForPlayer(Player players) throws GameExecutionException {
-		// ask for coordinate
-		// validate
-		// check victory conditions
-		return false;
-	}
+public class TicTacToe extends TurnBasedBoardGame<Mark, Character> {
 
 	@Override
 	public Comparable<?>[] getPlayerDiscriminators() {
 		return Mark.values();
+	}
+
+	@Override
+	public Board<Mark> prepareCleanBoard() {
+		return new TicTacToeBoard();
+	}
+
+	@Override
+	protected Presentation<int[], Character> getPresentation() {
+		return new TicTacToeBoardConsoleRepresentation(prepareCleanBoard());
 	}
 
 }

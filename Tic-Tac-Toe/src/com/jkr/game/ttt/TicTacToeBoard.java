@@ -1,22 +1,26 @@
 package com.jkr.game.ttt;
 
-class TicTacToeBoard {
+import com.jkr.game.area.Board;
+
+class TicTacToeBoard implements Board<Mark> {
 	
 	private final Mark[][] board = new Mark[3][3];
 
-	boolean canPutMark(int i, int j) {
+	TicTacToeBoard() {}
+	
+	public boolean canPutMark(int i, int j) {
 		return (board[i][j] == null);
 	}
 	
-	void putMark(int i, int j, Mark mark) {
+	public void putMark(int i, int j, Mark mark) {
 		board[i][j] = mark;
 	}
 	
-	boolean isWinCondition(int i, int j) {
+	public boolean isWinConditionMet(int i, int j) {
 		return (board[i][j]!=null) && (checkRow(i) || checkColumn(j) || (i-j==0 && checkForwardSlant()) || (i+j==2 && checkBackwardSlant()));
 	}
 	
-	boolean isFullyFilled() {
+	public boolean isFullyFilled() {
 		for (Mark[] marks : board) {
 			for (Mark mark : marks) {
 				if (mark == null) {
@@ -41,6 +45,16 @@ class TicTacToeBoard {
 	
 	private boolean checkBackwardSlant() {
 		return (board[0][2]==board[1][1]) && (board[1][1]==board[2][0]);
+	}
+
+	@Override
+	public int getWidth() {
+		return 3;
+	}
+
+	@Override
+	public int getHeight() {
+		return 3;
 	}
 
 }

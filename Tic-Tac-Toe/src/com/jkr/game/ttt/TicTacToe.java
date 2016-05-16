@@ -14,8 +14,8 @@ public class TicTacToe extends TurnBasedBoardGame<Mark, Character> implements Mu
 	}
 
 	@Override
-	protected Presentation<int[], Character> getPresentation() {
-		return new ConsoleBoardRepresentation(prepareCleanBoard());
+	protected Presentation<int[], Character> getPresentation(Board<Mark> board) {
+		return new ConsoleBoardRepresentation<Mark>(board);
 	}
 
 	@Override

@@ -56,5 +56,10 @@ class TicTacToeBoard implements Board<Mark> {
 	public int getHeight() {
 		return 3;
 	}
+	
+	@Override
+	public Mark[][] getBoardState() {
+		return board.clone();
+	}
 
 }
